@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 
-const TRELLO_API = "https://api.trello.com/1";
-
 export async function GET() {
   return new Response("Trello Agentic QA webhook is alive", { status: 200 });
 }
@@ -20,10 +18,23 @@ export async function POST(req: Request) {
   const labelName = action?.data?.label?.name;
   const cardName = action?.data?.card?.name;
 
-  if (actionType === "addLabelToCard" && labelName === "🤖 AI-TEST") {
+  console.log(
+    "TRELLO_ACTION",
+    JSON.stringify({ actionType, labelName, cardName })
+  );
+
+  if (
+    actionType === "addLabelToCard" &&
+    typeof labelName === "string" &&
+    labelName.trim().toUpperCase() === "AI-TEST"
+  ) {
     console.log(
       "AI-TEST_TRIGGERED",
-      JSON.stringify({ cardName, cardId: action?.data?.card?.id })
+      JSON.stringify({
+        cardName,
+        cardId: action?.data?.card?.id,
+        labelName,
+      })
     );
   }
 
