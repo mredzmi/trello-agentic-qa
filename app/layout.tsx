@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Trello Agentic QA',
+  description: 'Agentic QA for Trello',
   generator: 'v0.app',
   icons: {
     icon: [
