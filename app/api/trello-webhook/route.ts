@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   if (
     actionType === "addLabelToCard" &&
     typeof labelName === "string" &&
-    labelName.trim().toUpperCase() === "AI-TEST"
+    labelName.trim().toUpperCase().includes("AI-TEST")
   ) {
     console.log(
       "AI-TEST_TRIGGERED",
