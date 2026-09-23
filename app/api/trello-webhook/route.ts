@@ -59,18 +59,41 @@ Generate practical software test cases covering:
 3. Validation and boundary cases
 4. Regression considerations
 
-Return concise Markdown suitable for posting directly as a Trello comment.
+Return concise, Trello-friendly Markdown suitable for posting directly as a Trello comment.
 
-Use this structure:
+IMPORTANT: Trello comments do NOT reliably render Markdown tables. Do NOT use pipe tables (|---|---|), HTML tags, or <br> tags.
+
+Use this clean structure instead:
 
 ## 🧪 AI Generated Test Cases
 
-| ID | Scenario | Preconditions | Steps | Expected Result | Priority |
-|---|---|---|---|---|---|
+### TC-01 — [Scenario]
+**Preconditions:** [preconditions]
+**Steps:**
+1. [step]
+2. [step]
+3. [step]
+**Expected Result:** [expected result]
+**Priority:** High
 
-Then add a short "### QA Notes" section with important gaps, assumptions, or additional edge cases.
+### TC-02 — [Scenario]
+**Preconditions:** [preconditions]
+**Steps:**
+1. [step]
+2. [step]
+3. [step]
+**Expected Result:** [expected result]
+**Priority:** Medium
 
-Do not invent application behaviour that is not supported by the story; clearly mark assumptions.`;
+Continue for all relevant test cases.
+
+Then add:
+
+### 📝 QA Notes
+- [Important gap, assumption, or edge case]
+- [Additional regression consideration]
+
+Keep each test case concise and readable. Do not invent application behaviour that is not supported by the story; clearly mark assumptions.`;
 
   const res = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
